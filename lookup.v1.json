@@ -1,0 +1,49 @@
+{
+  "version": 1,
+  "description": "Complete word-level CodeBook lookup examples binding a generated permutation to ordered source and target word lists, per the exact-behaviour rules in README.md. reverseWord must equal word in every vector. These vectors are project-normative: they pin this implementation's own end-to-end CodeBook output for the stated seeds and word lists (produced via internal/cmd/vectorgen), not values published by any external standard.",
+  "vectors": [
+    {
+      "name": "bip39-english-seed-all-zero-abandon",
+      "seedHex": "0000000000000000000000000000000000000000000000000000000000000000",
+      "sourceWordListDigestHex": "b29eddba7f25bddb95294a0832cb36028871a90de52061b6528fc7cbcd25d0de",
+      "targetWordListDigestHex": "b29eddba7f25bddb95294a0832cb36028871a90de52061b6528fc7cbcd25d0de",
+      "word": "abandon",
+      "index": 0,
+      "mappedIndex": 649,
+      "mappedWord": "eye",
+      "reverseWord": "abandon"
+    },
+    {
+      "name": "bip39-english-seed-all-zero-zoo",
+      "seedHex": "0000000000000000000000000000000000000000000000000000000000000000",
+      "sourceWordListDigestHex": "b29eddba7f25bddb95294a0832cb36028871a90de52061b6528fc7cbcd25d0de",
+      "targetWordListDigestHex": "b29eddba7f25bddb95294a0832cb36028871a90de52061b6528fc7cbcd25d0de",
+      "word": "zoo",
+      "index": 2047,
+      "mappedIndex": 1720,
+      "mappedWord": "strike",
+      "reverseWord": "zoo"
+    },
+    {
+      "name": "synthetic-source-to-code-seed-all-zero-alpha",
+      "seedHex": "0000000000000000000000000000000000000000000000000000000000000000",
+      "sourceWordListDigestHex": "590bb11fe1e1d77d9090c66240fd7340a7cda3b194d478f3910e1108b9ae53ff",
+      "targetWordListDigestHex": "916305a6e627d1deac7d31c82eadf7dbd0ba55e8c1e22751b1e812a2657714f7",
+      "sourceWords": [
+        "alpha",
+        "bravo",
+        "charlie"
+      ],
+      "targetWords": [
+        "01",
+        "02",
+        "03"
+      ],
+      "word": "alpha",
+      "index": 0,
+      "mappedIndex": 0,
+      "mappedWord": "01",
+      "reverseWord": "alpha"
+    }
+  ]
+}

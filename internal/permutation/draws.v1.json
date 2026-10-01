@@ -1,0 +1,259 @@
+{
+  "version": 1,
+  "description": "Fisher-Yates draw traces. Each step lists every 16-bit big-endian draw attempted for that i (in stream order), flagged accepted/rejected, followed by the accepted j and the pre-swap values. A draw is accepted when it is below limit = floor(65536 / range) * range, with range = i + 1, and then j = draw mod range; a rejected draw still consumes its two keystream bytes. 'first-steps' sets show the algorithm's start (i = size-1 descending); 'all-steps-size-4' is a complete small shuffle covering the smallest ranges, including range=3, the sharpest rejection boundary (limit=65535, one raw value in 65536 rejected); 'first-steps-size-65536' covers the upper boundary, where limit=65536 and no draw can be rejected; 'rejection-examples' shows steps where a draw was rejected and a fresh one required, found by scanning a full shuffle for size=2048. These traces are project-normative: Fisher-Yates and the rejection-sampling rule they exercise are pinned by this repository's own 'Exact behaviour' rules in README.md, and the exact draws below are this implementation's own frozen output (produced via internal/cmd/vectorgen), not values published by any external standard.",
+  "sets": [
+    {
+      "name": "all-steps-size-4-seed-all-zero",
+      "seedHex": "0000000000000000000000000000000000000000000000000000000000000000",
+      "size": 4,
+      "steps": [
+        {
+          "i": 3,
+          "range": 4,
+          "limit": 65536,
+          "draws": [
+            {
+              "valueHex": "76b8",
+              "value": 30392,
+              "accepted": true
+            }
+          ],
+          "j": 0,
+          "before_p_i": 3,
+          "before_p_j": 0
+        },
+        {
+          "i": 2,
+          "range": 3,
+          "limit": 65535,
+          "draws": [
+            {
+              "valueHex": "e0ad",
+              "value": 57517,
+              "accepted": true
+            }
+          ],
+          "j": 1,
+          "before_p_i": 2,
+          "before_p_j": 1
+        },
+        {
+          "i": 1,
+          "range": 2,
+          "limit": 65536,
+          "draws": [
+            {
+              "valueHex": "a0f1",
+              "value": 41201,
+              "accepted": true
+            }
+          ],
+          "j": 1,
+          "before_p_i": 2,
+          "before_p_j": 2
+        }
+      ]
+    },
+    {
+      "name": "first-steps-size-2048-seed-all-zero",
+      "seedHex": "0000000000000000000000000000000000000000000000000000000000000000",
+      "size": 2048,
+      "steps": [
+        {
+          "i": 2047,
+          "range": 2048,
+          "limit": 65536,
+          "draws": [
+            {
+              "valueHex": "76b8",
+              "value": 30392,
+              "accepted": true
+            }
+          ],
+          "j": 1720,
+          "before_p_i": 2047,
+          "before_p_j": 1720
+        },
+        {
+          "i": 2046,
+          "range": 2047,
+          "limit": 65504,
+          "draws": [
+            {
+              "valueHex": "e0ad",
+              "value": 57517,
+              "accepted": true
+            }
+          ],
+          "j": 201,
+          "before_p_i": 2046,
+          "before_p_j": 201
+        },
+        {
+          "i": 2045,
+          "range": 2046,
+          "limit": 65472,
+          "draws": [
+            {
+              "valueHex": "a0f1",
+              "value": 41201,
+              "accepted": true
+            }
+          ],
+          "j": 281,
+          "before_p_i": 2045,
+          "before_p_j": 281
+        },
+        {
+          "i": 2044,
+          "range": 2045,
+          "limit": 65440,
+          "draws": [
+            {
+              "valueHex": "3d90",
+              "value": 15760,
+              "accepted": true
+            }
+          ],
+          "j": 1445,
+          "before_p_i": 2044,
+          "before_p_j": 1445
+        },
+        {
+          "i": 2043,
+          "range": 2044,
+          "limit": 65408,
+          "draws": [
+            {
+              "valueHex": "405d",
+              "value": 16477,
+              "accepted": true
+            }
+          ],
+          "j": 125,
+          "before_p_i": 2043,
+          "before_p_j": 125
+        }
+      ]
+    },
+    {
+      "name": "first-steps-size-65536-seed-all-zero",
+      "seedHex": "0000000000000000000000000000000000000000000000000000000000000000",
+      "size": 65536,
+      "steps": [
+        {
+          "i": 65535,
+          "range": 65536,
+          "limit": 65536,
+          "draws": [
+            {
+              "valueHex": "76b8",
+              "value": 30392,
+              "accepted": true
+            }
+          ],
+          "j": 30392,
+          "before_p_i": 65535,
+          "before_p_j": 30392
+        },
+        {
+          "i": 65534,
+          "range": 65535,
+          "limit": 65535,
+          "draws": [
+            {
+              "valueHex": "e0ad",
+              "value": 57517,
+              "accepted": true
+            }
+          ],
+          "j": 57517,
+          "before_p_i": 65534,
+          "before_p_j": 57517
+        },
+        {
+          "i": 65533,
+          "range": 65534,
+          "limit": 65534,
+          "draws": [
+            {
+              "valueHex": "a0f1",
+              "value": 41201,
+              "accepted": true
+            }
+          ],
+          "j": 41201,
+          "before_p_i": 65533,
+          "before_p_j": 41201
+        }
+      ]
+    },
+    {
+      "name": "rejection-examples-size-2048-seed-ascending",
+      "seedHex": "000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f",
+      "size": 2048,
+      "steps": [
+        {
+          "i": 2002,
+          "range": 2003,
+          "limit": 64096,
+          "draws": [
+            {
+              "valueHex": "fc12",
+              "value": 64530,
+              "accepted": false
+            },
+            {
+              "valueHex": "2a35",
+              "value": 10805,
+              "accepted": true
+            }
+          ],
+          "j": 790,
+          "before_p_i": 2002,
+          "before_p_j": 790
+        },
+        {
+          "i": 1941,
+          "range": 1942,
+          "limit": 64086,
+          "draws": [
+            {
+              "valueHex": "fcb3",
+              "value": 64691,
+              "accepted": false
+            },
+            {
+              "valueHex": "f134",
+              "value": 61748,
+              "accepted": true
+            }
+          ],
+          "j": 1546,
+          "before_p_i": 1941,
+          "before_p_j": 1546
+        },
+        {
+          "i": 1936,
+          "range": 1937,
+          "limit": 63921,
+          "draws": [
+            {
+              "valueHex": "f9bd",
+              "value": 63933,
+              "accepted": false
+            },
+            {
+              "valueHex": "5613",
+              "value": 22035,
+              "accepted": true
+            }
+          ],
+          "j": 728,
+          "before_p_i": 1936,
+          "before_p_j": 728
+        }
+      ]
+    }
+  ]
+}

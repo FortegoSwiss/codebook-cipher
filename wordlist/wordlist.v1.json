@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "description": "Word list digests: SHA-256 over a 4-byte little-endian entry count, followed by each entry as a 4-byte little-endian byte length and its raw bytes, in word list order. 'synthetic-3-word' is a minimal worked example implementers can reproduce by hand; 'bip39-english' is the canonical 2048-word list shipped in github.com/FortegoSwiss/codebook-cipher/wordlist/bip39. Every digestHex value here, including bip39-english's, is project-normative: it is this project's own List.Digest() encoding, not an externally published digest. bip39-english's word *list* is externally anchored -- its raw wordlist.txt content is checked against the published upstream english.txt file's plain SHA-256 in wordlist/bip39/wordlist_test.go's canonicalEnglishSHA256 constant -- but that is a different hash, over different bytes, of the same words; it will not equal digestHex.",
+  "vectors": [
+    {
+      "name": "synthetic-3-word",
+      "words": [
+        "alpha",
+        "bravo",
+        "charlie"
+      ],
+      "count": 3,
+      "digestHex": "590bb11fe1e1d77d9090c66240fd7340a7cda3b194d478f3910e1108b9ae53ff"
+    },
+    {
+      "name": "bip39-english",
+      "count": 2048,
+      "digestHex": "b29eddba7f25bddb95294a0832cb36028871a90de52061b6528fc7cbcd25d0de",
+      "digestNote": "word list itself is not repeated here; see bip39/wordlist.txt in this repository"
+    }
+  ]
+}

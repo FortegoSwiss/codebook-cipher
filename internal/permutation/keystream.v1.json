@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "description": "Raw ChaCha20-IETF (RFC 8439) keystream bytes for representative 32-byte seeds, key=seed, nonce=12 zero bytes, initial counter=0. 128 bytes = two consecutive 64-byte blocks (counter 0 and counter 1), consumed in order with no gaps. The seed-all-zero vector's first block is byte-identical to RFC 8439 Appendix A.1 Test Vector #1 (key=0, nonce=0, counter=0), and its second block to Test Vector #2 (counter=1) -- independently confirming that this stream is a conformant, correctly counter-incrementing ChaCha20-IETF keystream. The other two vectors, seed-ascending and seed-all-ff, are project-normative, not RFC-anchored: they were produced by this repository's own effective ChaCha20 implementation (internal/cmd/vectorgen) for additional seed coverage, and no external source publishes them.",
+  "vectors": [
+    {
+      "name": "seed-all-zero",
+      "seedHex": "0000000000000000000000000000000000000000000000000000000000000000",
+      "keystreamHex": "76b8e0ada0f13d90405d6ae55386bd28bdd219b8a08ded1aa836efcc8b770dc7da41597c5157488d7724e03fb8d84a376a43b8f41518a11cc387b669b2ee65869f07e7be5551387a98ba977c732d080dcb0f29a048e3656912c6533e32ee7aed29b721769ce64e43d57133b074d839d531ed1f28510afb45ace10a1f4b794d6f"
+    },
+    {
+      "name": "seed-ascending",
+      "seedHex": "000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f",
+      "keystreamHex": "39fd2b7dd9c5196a8dbd0377b8dc4a498a35d86fbcde6accb2cc7d4cd8ea24922b23cce7a26023ab3f0eef693ac87f64258235eab1f7a32dc22762a0485b410c18b84231ade6a6d113615c61af434e27f8b1f3f5e1ad5b5cecf8fc122a35755c7208086dd1ee3c5d9d815824640e003c9ba0f65ede5d59ce0d2a4a7f31955acd"
+    },
+    {
+      "name": "seed-all-ff",
+      "seedHex": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+      "keystreamHex": "f6b898412f4ab061943167c1e23efaa2ba98e345a093f0b06da13bffdbd4b2c766dd107034b4582a2ef42c5e1ea475f2fea477a10a9f1d75b3635243b2506b322f8b53541ed20ddaa5dea1b78f1fc08446de1f93b0e07080f7f2ee9be681e43ff2b916c8b1bf6123854d2fca5384f128199f7a1b2f847316481429b4b35238cc"
+    }
+  ]
+}

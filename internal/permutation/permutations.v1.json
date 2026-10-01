@@ -1,0 +1,132 @@
+{
+  "version": 1,
+  "description": "Final permutations. permutationHash is SHA-256 over the big-endian uint16 encoding of every P[i], in array order. 'full' gives the complete P array (P[index] = mappedIndex) for small sizes; larger sizes give only permutationHash plus a small 'sample' of spot-checkable (index, mappedIndex) pairs. Every vector here also satisfies the forward/reverse invariant Inverse(P)[P[i]] = i for all i, which is exercised by this repository's own tests (internal/permutation/permutation_test.go) rather than re-encoded per-index in this file for the large sizes. These vectors are project-normative: Fisher-Yates is a public algorithm, but the specific permutations below are this implementation's own frozen output for the stated seeds and sizes (produced via internal/cmd/vectorgen), not values published by any external standard.",
+  "vectors": [
+    {
+      "name": "size-1-seed-all-zero",
+      "seedHex": "0000000000000000000000000000000000000000000000000000000000000000",
+      "size": 1,
+      "permutationHash": "96a296d224f285c67bee93c30f8a309157f0daa35dc5b87e410b78630a09cfc7",
+      "full": [
+        0
+      ]
+    },
+    {
+      "name": "size-2-seed-all-zero",
+      "seedHex": "0000000000000000000000000000000000000000000000000000000000000000",
+      "size": 2,
+      "permutationHash": "bf5e8ffa51a9e748985800c1d3d7f1a2a6ae7435136593ca8d9637e3f87c699c",
+      "full": [
+        1,
+        0
+      ]
+    },
+    {
+      "name": "size-3-seed-all-zero",
+      "seedHex": "0000000000000000000000000000000000000000000000000000000000000000",
+      "size": 3,
+      "permutationHash": "a31e910680405ce5f30bc28f9a1cef773c238ba2574e121d94d63271a1651b94",
+      "full": [
+        0,
+        1,
+        2
+      ]
+    },
+    {
+      "name": "size-4-seed-all-zero",
+      "seedHex": "0000000000000000000000000000000000000000000000000000000000000000",
+      "size": 4,
+      "permutationHash": "1858614d5ad7d21e7a5ebd2061c1807fa0dc423de33ea8438665d1378fe03450",
+      "full": [
+        3,
+        2,
+        1,
+        0
+      ]
+    },
+    {
+      "name": "size-1024-seed-all-zero",
+      "seedHex": "0000000000000000000000000000000000000000000000000000000000000000",
+      "size": 1024,
+      "permutationHash": "903aaf771fb07daebe9e6cb171db90b72d2b2a85c6da95c948bd27a1436a298d",
+      "sample": [
+        {
+          "index": 0,
+          "mappedIndex": 378
+        },
+        {
+          "index": 1,
+          "mappedIndex": 457
+        },
+        {
+          "index": 512,
+          "mappedIndex": 888
+        },
+        {
+          "index": 1022,
+          "mappedIndex": 229
+        },
+        {
+          "index": 1023,
+          "mappedIndex": 696
+        }
+      ]
+    },
+    {
+      "name": "size-2048-seed-all-zero",
+      "seedHex": "0000000000000000000000000000000000000000000000000000000000000000",
+      "size": 2048,
+      "permutationHash": "dd83ecd411bf41258763bbdc8eb6e9793f5717b3ff9f070651b956b8a4d1b771",
+      "sample": [
+        {
+          "index": 0,
+          "mappedIndex": 649
+        },
+        {
+          "index": 1,
+          "mappedIndex": 1475
+        },
+        {
+          "index": 1024,
+          "mappedIndex": 69
+        },
+        {
+          "index": 2046,
+          "mappedIndex": 201
+        },
+        {
+          "index": 2047,
+          "mappedIndex": 1720
+        }
+      ]
+    },
+    {
+      "name": "size-65536-seed-all-zero",
+      "seedHex": "0000000000000000000000000000000000000000000000000000000000000000",
+      "size": 65536,
+      "permutationHash": "0bb27d8cb8859d2167aae73360d2e40646771efdf91832a2ba32e169992ceaaf",
+      "sample": [
+        {
+          "index": 0,
+          "mappedIndex": 14804
+        },
+        {
+          "index": 1,
+          "mappedIndex": 49592
+        },
+        {
+          "index": 32768,
+          "mappedIndex": 60534
+        },
+        {
+          "index": 65534,
+          "mappedIndex": 57517
+        },
+        {
+          "index": 65535,
+          "mappedIndex": 30392
+        }
+      ]
+    }
+  ]
+}
